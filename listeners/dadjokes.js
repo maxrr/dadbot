@@ -55,9 +55,9 @@ exports.setup = function(gbv) {
 
                 // add the user to the cooldowns list and remove it once time is up
                 cooldowns[msg.author.id] = true;
-                setTimeout(gbv.cfg.cooldown_time, () => {
+                setTimeout(() => {
                     cooldowns[msg.author.id] = null;
-                });
+                }, gbv.cfg.cooldown_time);
 
                 // process the content and run the regular expression
                 let content = msg.content.trim().toLowerCase();
