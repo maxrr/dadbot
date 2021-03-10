@@ -57,37 +57,6 @@ client.on('ready', () => {
     fp.p(PNT_UPD, `I am active on ${client.guilds.cache.size} guild(s), serving ${servedUsers} users`);
 });
 
-// load files in ./listeners/
-/*let listeners = fs.readdirSync('./listeners/', { withFileTypes: true })
-for (let i in listeners) {
-    let file = listeners[i];
-    if (file.name.substring(file.name.length - 3) == '.js') {
-        if (!file.name.startsWith('_') && (!file.name.startsWith('*') || DEV_MODE)) {
-            try {
-                // provide key-pair object w/ important GloBal Variables (gbv)
-                require(`./listeners/${file.name}`).setup({
-                    Djs: Djs,
-                    client: client,
-                    fs: fs,
-                    cfg: cfg,
-                    DEV_MODE: DEV_MODE,
-                    qrh: qrh,
-                    fp: fp,
-                    p_codes: {
-                        info: PNT_INFO,
-                        upd: PNT_UPD,
-                        err: PNT_ERR,
-                        fs: PNT_FS
-                    }
-                });
-                fp.p(PNT_FS, `${file.name} completed setup`)
-            } catch(err) {
-                fp.p(PNT_ERR, `${file.name} failed setup! Error below:\n${err}`)
-            }
-        }
-    }
-}*/
-
 // set up our file loader for the files
 const FileLoader = require('./util/fileloader.js').FileLoader;
 const fl = new FileLoader();
