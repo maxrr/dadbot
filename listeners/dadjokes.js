@@ -73,7 +73,7 @@ exports.setup = function(gbv) {
                 } else if (content == 'dad am i gay?') {
 
                     // autorespond
-                    gbv.fp.p(gbv.p_codes.info`[${msg.guild.name}] [#${msg.channel.name}] ${msg.author.tag} triggered autoresponse`);
+                    gbv.fp.p(gbv.p_codes.info, `[${msg.guild.name}] [#${msg.channel.name}] ${msg.author.tag} triggered autoresponse`);
                     gbv.qrh.queueResponse(msg.channel, positives[Math.floor(Math.random() * positives.length)]);
 
                 } else if (content.includes(' dad')) {

@@ -59,7 +59,7 @@ client.on('ready', () => {
 
 // set up our file loader for the files
 const FileLoader = require('./util/fileloader.js').FileLoader;
-const fl = new FileLoader();
+const fl = new FileLoader(fp);
 const files = fl.loadDirectory('./listeners', (fileName) => {
 
     return (

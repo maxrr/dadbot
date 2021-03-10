@@ -51,7 +51,7 @@ class FileLoader {
                     if (filter(file)) {
                         filesToInclude.push(dir + "/" + file);
                     } else {
-                        this.fancyprinter.p(`$fFile was filtered out ${dir + ' / ' + file}`);
+                        this.fancyprinter.p(`$fFile was filtered out${dir + '/' + file}`);
                     }
 
                 } else if (stats.isDirectory() && recurse) {

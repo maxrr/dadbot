@@ -1,6 +1,7 @@
 # Config file
 config.json
 package-lock.json
+listeners/alex_*.js
 
 # Logs
 logs

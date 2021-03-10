@@ -19,7 +19,9 @@ class FancyPrinter {
             content = code;
             // allows use of "$iMessage" or "$eError"
             if (content.substring(0, 1) == "$") {
-                switch(content.substring(0, 1)) {
+                let prefix = content.substring(1, 2);
+                content = content.substring(2);
+                switch (prefix) {
 
                     case "i":
                         code = this.codes.inf;
