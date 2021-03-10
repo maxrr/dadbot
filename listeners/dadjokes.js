@@ -82,7 +82,7 @@ exports.setup = function(gbv) {
                     for (i in greetings) {
                         let greeting = greetings[i];
                         if (content.includes(`${(typeof (greeting) == "string" && greeting) || (typeof (greeting) == "object" && greeting[0])} dad`)) {
-                            gbv.fp.p(gbv.p_codes.info, `[${msg.guild.name}] [${msg.channel.name}] ${msg.author.tag} triggered autoresponse`);
+                            gbv.fp.p(gbv.p_codes.info, `[${msg.guild.name}] [#${msg.channel.name}] ${msg.author.tag} triggered autoresponse`);
                             gbv.qrh.queueResponse(msg.channel, `${(typeof (greeting) == "string" && greeting) || (typeof (greeting) == "object" && greeting[1])} ${names[Math.floor(Math.random() * names.length)]}`);
                         }
                     }
