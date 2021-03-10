@@ -14,8 +14,32 @@ class FancyPrinter {
 
     // do the thing!
     print(code, content) {
-        // if no code specified, assume informative
-        if (content == null) { content = code; code = this.codes.inf; }
+        
+        if (content == null) { 
+            content = code;
+            // allows use of "$iMessage" or "$eError"
+            if (content.substring(0, 1) == "$") {
+                switch(content.substring(0, 1)) {
+
+                    case "i":
+                        code = this.codes.inf;
+                        break;
+                    case "u":
+                        code = this.codes.upd;
+                        break;
+                    case "e":
+                        code = this.codes.err;
+                        break;
+                    case "f":
+                        code = this.codes.fs;
+                        break;
+                        
+                }
+            } else {
+                // if no code specified, assume informative
+                code = this.codes.inf;
+            }
+        }
 
         // get a nice looking timestamp using moment.js (https://momentjs.com/)
         let timestamp = mm().format('HH:mm:ss');

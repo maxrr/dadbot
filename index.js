@@ -2,8 +2,6 @@
 const Djs = require('discord.js')
 const client = new Djs.Client();
 const fs = require('fs');
-const cfg = JSON.parse(fs.readFileSync('./config.json'));
-const DEV_MODE = cfg.dev_mode || false;
 
 // list out our codes
 let PNT_INFO = 0
@@ -12,10 +10,17 @@ let PNT_ERR = 2
 let PNT_FS = 3
 
 // make a FancyPrinter for us to use
-FancyPrinter = require('./util/fancyprinter.js').FancyPrinter;
+let FancyPrinter = require('./util/fancyprinter.js').FancyPrinter;
 const fp = new FancyPrinter(PNT_INFO, PNT_UPD, PNT_ERR, PNT_FS);
 fp.warmup();
 fp.p(PNT_UPD, 'Starting up...')
+
+// get our config and ensure that it's right
+let ConfigMaker = require('./util/ensureconfig.js').ConfigMaker;
+let cm = new ConfigMaker(fp);
+const cfg = cm.getConfig();
+const DEV_MODE = cfg.dev_mode || false;
+fp.p(PNT_INFO, `Developer mode is currently ${DEV_MODE ? "ENABLED" : "DISABLED"}`);
 
 // make our QRH class for making the 'father is typing...' work
 class QueuedResponseHandler {
