@@ -70,7 +70,7 @@ exports.setup = function(gbv) {
                     gbv.fp.p(gbv.p_codes.info, `[${msg.guild.name}] [#${msg.channel.name}] ${msg.author.tag} triggered command with string \'${match[1]}\'}`);
                     gbv.qrh.queueResponse(msg.channel, `hi ${match[1]} i'm dad`);
 
-                } else if (content == 'dad am i gay?') {
+                } else if (content == ', dad?') {
 
                     // autorespond
                     gbv.fp.p(gbv.p_codes.info, `[${msg.guild.name}] [#${msg.channel.name}] ${msg.author.tag} triggered autoresponse`);
